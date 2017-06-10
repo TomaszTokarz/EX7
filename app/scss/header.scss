@@ -1,0 +1,49 @@
+@import 'settings';
+
+.header {
+
+    &_container {
+        width: 100%;
+        height: 60px;
+        background-color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+    }
+
+    &__logo {
+        margin-left: $header-sides-margin;
+    }
+
+    &__search_bar {
+        width: $search-bar-width;
+        height: 40px;
+        border: 1px solid $main-border-color;
+        background-color: $light-grey;
+    }
+
+    &__menu_button {
+        width: $menu-button-line-width;
+        height: $menu-button-line-height;
+        background-color: $dark-grey;
+        position: relative;
+        margin-right: $header-sides-margin;
+
+        &::after,
+        &::before {
+            content: "";
+            width: inherit;
+            height: inherit;
+            background-color: inherit;
+            position: absolute;
+            top: -$menu-button-lines-offset;
+            left: 0;
+        }
+
+        &::before {
+            top: $menu-button-lines-offset;
+        }
+    }
+}

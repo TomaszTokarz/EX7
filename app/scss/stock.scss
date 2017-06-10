@@ -1,0 +1,74 @@
+@import 'settings';
+
+.stock__table {
+    margin: 0 auto 30px;
+    width: 98%;
+    max-width: $max-width;
+
+    &__header {
+        top: 60px;
+        color: $white;
+        line-height: 2em;
+        position: fixed;
+        width: 100%;
+        max-width: $max-width;
+        display: flex;
+
+        &_id,
+        &_acronym,
+        &_name {
+            width: $table-unit-width;
+            background-color: $blue;
+            text-align: center;
+            flex-grow: 1;
+            @include table-border();
+        }
+
+        &_name {
+            flex-grow: 10;
+        }
+    }
+
+    &__body {
+        margin-top: 102px;
+        padding: 0;
+        line-height: 1.5em;
+        width: 100%;;
+        max-width: $max-width;
+
+
+        &_supply {
+            display: flex;
+        }
+
+        &_supply:nth-child(even) &_id,
+        &_supply:nth-child(even) &_acronym,
+        &_supply:nth-child(even) &_name {
+            background-color: $light-blue;
+        }
+
+        &_id,
+        &_acronym,
+        &_name {
+            width: $table-unit-width;
+            background-color: $white;
+            text-align: center;
+            flex-grow: 1;
+            @include table-border();
+        }
+
+        &_name {
+            flex-grow: 10;
+            text-align: left;
+            text-indent: 20px;
+        }
+    }
+
+    &__footer {
+        background-color: $blue;
+        color: $white;
+        line-height: 2em;
+        display: flex;
+        width: 100%;
+    }
+}

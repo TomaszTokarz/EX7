@@ -1,0 +1,35 @@
+.header_container {
+  width: 100%;
+  height: 60px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0; }
+
+.header__logo {
+  margin-left: 20px; }
+
+.header__search_bar {
+  width: calc(95vw - 150px);
+  height: 40px;
+  border: 1px solid #aaaaaa;
+  background-color: #fafafa; }
+
+.header__menu_button {
+  width: 30px;
+  height: 5px;
+  background-color: #4e4e4e;
+  position: relative;
+  margin-right: 20px; }
+  .header__menu_button::after, .header__menu_button::before {
+    content: "";
+    width: inherit;
+    height: inherit;
+    background-color: inherit;
+    position: absolute;
+    top: -10px;
+    left: 0; }
+  .header__menu_button::before {
+    top: 10px; }

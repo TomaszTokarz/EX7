@@ -1,0 +1,40 @@
+$main-border-color: #aaaaaa;
+$light-grey: #fafafa;
+$dark-grey: #4e4e4e;
+$white: #ffffff;
+$black: #000000;
+$blue: #3899d1;
+$light-blue: #dff1f8;
+
+$font-size: 20px;
+$mobile-font-size: 15px;
+
+$table-unit-width: 3em;
+$max-width: 1000px;
+
+$mobile-width: 600px;
+
+$menu-button-line-width: 30px;
+$menu-button-line-height: 5px;
+$menu-button-lines-offset: 10px;
+
+$header-sides-margin: 20px;
+$search-bar-width: calc(95vw - 150px);
+
+@mixin mobile {
+    @media screen and (max-width: $mobile-width) {
+        @content;
+    }
+}
+
+@mixin border-radius($radius) {
+-webkit-border-radius: $radius;
+   -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+        border-radius: $radius;
+}
+
+@mixin table-border() {
+    border-left: 1px solid $white;
+    border-right: 1px solid $white;
+}
