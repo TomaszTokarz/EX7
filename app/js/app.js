@@ -6,20 +6,20 @@ var app = {
 
     pingApi: function() {
         $.ajax({
-            url: "http://rt.ex7.pl/ping",
+            url: 'http://rt.ex7.pl/ping',
             method: 'GET',
             success: function(data){
-                console.log("Connection established correctly, server responses: ", data.response);
+                console.log('Connection established correctly, server responses: ', data.response);
                 app.getData();
             },
             error: function(data) {
-                console.error("Connection failed");
+                console.error('Connection failed');
             }
         })
     },
 
     getData: function() {
-        
+
     }
 };
 

@@ -415,7 +415,7 @@ template {
   position: relative;
   margin-right: 20px; }
   .header__menu_button::after, .header__menu_button::before {
-    content: "";
+    content: '';
     width: inherit;
     height: inherit;
     background-color: inherit;
@@ -432,7 +432,7 @@ template {
   .stock__table__header {
     top: 60px;
     color: #ffffff;
-    line-height: 2em;
+    line-height: 2.2em;
     position: fixed;
     width: 100%;
     max-width: 1000px;
@@ -449,7 +449,7 @@ template {
   .stock__table__body {
     margin-top: 102px;
     padding: 0;
-    line-height: 1.5em;
+    line-height: 1.8em;
     width: 100%;
     max-width: 1000px; }
     .stock__table__body_supply {
@@ -472,9 +472,21 @@ template {
   .stock__table__footer {
     background-color: #3899d1;
     color: #ffffff;
-    line-height: 2em;
+    line-height: 2.2em;
     display: flex;
+    justify-content: space-between;
     width: 100%; }
+    .stock__table__footer_text {
+      padding-left: 20px; }
+    .stock__table__footer_indicator {
+      cursor: pointer;
+      padding: 0 5px; }
+      .stock__table__footer_indicator.active {
+        font-size: bold;
+        border: 2px solid #ffffff; }
+    .stock__table__footer_next_page {
+      padding-right: 20px;
+      cursor: pointer; }
 
 .templates_container {
   display: none; }

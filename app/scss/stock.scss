@@ -8,7 +8,7 @@
     &__header {
         top: 60px;
         color: $white;
-        line-height: 2em;
+        line-height: 2.2em;
         position: fixed;
         width: 100%;
         max-width: $max-width;
@@ -32,7 +32,7 @@
     &__body {
         margin-top: 102px;
         padding: 0;
-        line-height: 1.5em;
+        line-height: 1.8em;
         width: 100%;;
         max-width: $max-width;
 
@@ -60,15 +60,35 @@
         &_name {
             flex-grow: 10;
             text-align: left;
-            text-indent: 20px;
+            text-indent: $header-sides-margin;
         }
     }
 
     &__footer {
         background-color: $blue;
         color: $white;
-        line-height: 2em;
+        line-height: 2.2em;
         display: flex;
+        justify-content: space-between;
         width: 100%;
+
+        &_text {
+            padding-left: $header-sides-margin;
+        }
+
+        &_indicator {
+            cursor: pointer;
+            padding: 0 5px;
+
+            &.active {
+                font-size: bold;
+                border: 2px solid $white;
+            }
+        }
+
+        &_next_page {
+            padding-right: $header-sides-margin;
+            cursor: pointer;            
+        }
     }
 }

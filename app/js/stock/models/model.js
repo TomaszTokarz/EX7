@@ -1,7 +1,7 @@
 var Supply = Backbone.Model.extend({
     defaults: {
-        "acronym": "",
-        "id": "",
-        "name": ""
+        'acronym': '',
+        'id': '',
+        'name': ''
     }
 });

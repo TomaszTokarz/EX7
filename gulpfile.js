@@ -33,7 +33,7 @@ gulp.task('watch', ['browserSync', 'sass'], function (){
 
 gulp.task('build', function (callback) {
   runSequence('clean:dist',
-    ['sass', 'useref', 'images', 'fonts', 'templatesBuild'],
+    ['sass', 'useref', 'images', 'fonts'],
     callback
   )
 });

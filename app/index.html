@@ -13,7 +13,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>EX7 project</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet'>
 
     <!--build:css css/styles.min.css-->
         <link rel='stylesheet' href='css/main.css'>
@@ -27,49 +27,52 @@
 
     <div class='js-app-container'></div>
 
-    <div class="templates_container">
-        <script id="layout_template" type="text/x-handlebars-template">
-            <header class="header_container js-header-container"></header>
-            <main class="main_container"></main>
-            <footer class="footer_container"></footer>
+    <div class='templates_container'>
+        <script id='layout_template' type='text/x-handlebars-template'>
+            <header class='header_container js-header-container'></header>
+            <main class='main_container'></main>
+            <footer class='footer_container'></footer>
         </script>
 
-        <script id="header_template" type="text/x-handlebars-template">
-            <img class="header__logo" src='images/logo.png' />
+        <script id='header_template' type='text/x-handlebars-template'>
+            <img class='header__logo' src='images/logo.png' />
             <input class='header__search_bar'></input>
             <div class='header__menu_button'>
                 <div class='header__menu_button_icon'></div>
             </div>
         </script>
 
-        <script id="stock_template" type="text/x-handlebars-template">
-            <div class="stock__table">
-                <div class="stock__table__header">
-                    <div class="stock__table__header_acronym">Acronym</div>
-                    <div class="stock__table__header_id">ID</div>
-                    <div class="stock__table__header_name">Name</div>
+        <script id='stock_template' type='text/x-handlebars-template'>
+            <div class='stock__table'>
+                <div class='stock__table__header'>
+                    <div class='stock__table__header_acronym'>Acronym</div>
+                    <div class='stock__table__header_id'>ID</div>
+                    <div class='stock__table__header_name'>Name</div>
                 </div>
-                <ul class="stock__table__body"></ul>
-                <div class="stock__table__footer">
-                    <div class="stock__table__footer">
-                        <span class="stock__table__footer_text">Items per page:
-                            <span class="stock__table__footer_indicator">20, </span>
-                            <span class="stock__table__footer_indicator">50, </span>
-                            <span class="stock__table__footer_indicator">100</span>
+                <ul class='stock__table__body'></ul>
+                <div class='stock__table__footer'>
+                    <div class='stock__table__footer'>
+                        <span class='stock__table__footer_text'>Items per page:
+                            <span class='stock__table__footer_indicator js_page_size_indicator active' value='20'>20</span> |
+                            <span class='stock__table__footer_indicator js_page_size_indicator' value='50'>50</span> |
+                            <span class='stock__table__footer_indicator js_page_size_indicator' value='100'>100</span>
+                        </span>
+                        <span class='stock__table__footer_next_page'>
+                            next page >>
                         </span>
                     </div>
                 </div>
             </div>
         </script>
 
-        <script id="supply_template" type="text/x-handlebars-template">
-            <div class="stock__table__body_acronym">
+        <script id='supply_template' type='text/x-handlebars-template'>
+            <div class='stock__table__body_acronym'>
                 {{acronym}}
             </div>
-            <div class="stock__table__body_id">
+            <div class='stock__table__body_id'>
                 {{id}}
             </div>
-            <div class="stock__table__body_name">
+            <div class='stock__table__body_name'>
                 {{name}}
             </div>
         </script>

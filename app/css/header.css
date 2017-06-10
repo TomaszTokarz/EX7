@@ -24,7 +24,7 @@
   position: relative;
   margin-right: 20px; }
   .header__menu_button::after, .header__menu_button::before {
-    content: "";
+    content: '';
     width: inherit;
     height: inherit;
     background-color: inherit;
