@@ -5,6 +5,7 @@ $white: #ffffff;
 $black: #000000;
 $blue: #3899d1;
 $light-blue: #dff1f8;
+$loader-background: rgba(255, 255, 255, 0.85);
 
 $font-size: 20px;
 $mobile-font-size: 15px;
@@ -34,7 +35,27 @@ $search-bar-width: calc(95vw - 150px);
         border-radius: $radius;
 }
 
+@mixin transform($transformation) {
+    -webkit-transform: $transformation;
+        -ms-transform: $transformation;
+            transform: $transformation;
+}
+
 @mixin table-border() {
     border-left: 1px solid $white;
     border-right: 1px solid $white;
+}
+
+@mixin loader($size) {
+    width: $size;
+    height: $size;
+    border: $size*0.2 solid $light-grey;
+    border-right: $size*0.2 solid $blue;
+    @include border-radius(50%);
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { @include transform(rotate(0deg)); }
+    100% { @include transform(rotate(360deg)); }
 }

@@ -21,11 +21,38 @@
             background-color: $blue;
             text-align: center;
             flex-grow: 1;
+            position: relative;
+            cursor: pointer;
             @include table-border();
         }
 
         &_name {
             flex-grow: 10;
+        }
+
+        &__sort_indicator {
+
+            &.ascent {
+                display: block;
+                position: absolute;
+                width: 0;
+                height: 0;
+                top: calc(1.1em - 4px);
+                right: 5px;
+                border: 8px solid transparent;
+                border-top: 8px solid $white;
+            }
+
+            &.descent {
+                display: block;
+                position: absolute;
+                width: 0;
+                height: 0;
+                top: calc(1.1em - 12px);
+                right: 5px;
+                border: 8px solid transparent;
+                border-bottom: 8px solid $white;
+            }
         }
     }
 
@@ -60,7 +87,8 @@
         &_name {
             flex-grow: 10;
             text-align: left;
-            text-indent: $header-sides-margin;
+            box-sizing: border-box;
+            padding-left: $header-sides-margin;
         }
     }
 
@@ -88,7 +116,18 @@
 
         &_next_page {
             padding-right: $header-sides-margin;
-            cursor: pointer;            
+            cursor: pointer;
         }
+
+        &_previous_page {
+            cursor: pointer;
+            visibility: hidden;
+
+            &.active {
+                visibility: visible;
+            }
+        }
+
+
     }
 }

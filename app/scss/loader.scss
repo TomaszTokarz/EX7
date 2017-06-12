@@ -1,0 +1,16 @@
+@import 'settings';
+
+.loader {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    background: $loader-background;
+
+    &__screen {
+        @include loader(150px);
+        position: relative;
+        margin: -75px auto 0;
+        top: 50%;
+    }
+}

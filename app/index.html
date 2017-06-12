@@ -32,11 +32,12 @@
             <header class='header_container js-header-container'></header>
             <main class='main_container'></main>
             <footer class='footer_container'></footer>
+            <!-- <div class='loader'></div> -->
         </script>
 
         <script id='header_template' type='text/x-handlebars-template'>
             <img class='header__logo' src='images/logo.png' />
-            <input class='header__search_bar'></input>
+            <input class='header__search_bar js_filter_input'></input>
             <div class='header__menu_button'>
                 <div class='header__menu_button_icon'></div>
             </div>
@@ -45,9 +46,18 @@
         <script id='stock_template' type='text/x-handlebars-template'>
             <div class='stock__table'>
                 <div class='stock__table__header'>
-                    <div class='stock__table__header_acronym'>Acronym</div>
-                    <div class='stock__table__header_id'>ID</div>
-                    <div class='stock__table__header_name'>Name</div>
+                    <div class='stock__table__header_acronym js_acronym_button'>
+                        Acronym
+                        <div class='stock__table__header__sort_indicator js_sort_indicator'></div>
+                    </div>
+                    <div class='stock__table__header_id js_id_button'>
+                        ID
+                        <div class='stock__table__header__sort_indicator js_sort_indicator'></div>
+                    </div>
+                    <div class='stock__table__header_name js_name_button'>
+                        Name
+                        <div class='stock__table__header__sort_indicator js_sort_indicator ascent'></div>
+                    </div>
                 </div>
                 <ul class='stock__table__body'></ul>
                 <div class='stock__table__footer'>
@@ -57,9 +67,14 @@
                             <span class='stock__table__footer_indicator js_page_size_indicator' value='50'>50</span> |
                             <span class='stock__table__footer_indicator js_page_size_indicator' value='100'>100</span>
                         </span>
-                        <span class='stock__table__footer_next_page'>
-                            next page >>
-                        </span>
+                        <div>
+                            <span class='stock__table__footer_previous_page js_previous_page'>
+                                << previous page ||
+                            </span>
+                            <span class='stock__table__footer_next_page js_next_page'>
+                                next page >>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -76,6 +91,10 @@
                 {{name}}
             </div>
         </script>
+
+        <script id='loader_template' type='text/x-handlebars-template'>
+            <div class='loader__screen'></div>
+        </script>
     </div>
 
     <!-- build:js js/main.min.js -->
@@ -86,13 +105,14 @@
         <script src='bower_components/backbone.marionette/lib/backbone.marionette.js'></script>
         <script src='bower_components/handlebars/handlebars.js'></script>
 
-        <script src='js/common/views/layout.js'></script>
-        <script src='js/common/views/header.js'></script>
-
         <script src='js/stock/models/model.js'></script>
         <script src='js/stock/models/collection.js'></script>
         <script src='js/stock/views/item.js'></script>
         <script src='js/stock/views/list.js'></script>
+
+        <script src='js/common/views/loader.js'></script>
+        <script src='js/common/views/layout.js'></script>
+        <script src='js/common/views/header.js'></script>
 
         <script src='js/app.js'></script>
     <!-- endbuild -->
