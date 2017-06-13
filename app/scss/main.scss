@@ -1,9 +1,9 @@
 @import 'normalize';
 @import 'settings';
 @import 'header';
-@import 'footer';
 @import 'stock';
 @import 'loader';
+@import 'table_nav';
 
 
 .templates_container {
@@ -12,12 +12,12 @@
 
 .body {
     background: url('../images/background.png');
-    font-family: 'Didact Gothic', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: $font-size;
     color: $dark-grey;
     @include mobile {
         font-size: $mobile-font-size;
-    };
+    }
 }
 
 .main_container {

@@ -1,6 +1,7 @@
 $main-border-color: #aaaaaa;
 $light-grey: #fafafa;
 $dark-grey: #4e4e4e;
+$grey: #cccccc;
 $white: #ffffff;
 $black: #000000;
 $blue: #3899d1;
@@ -8,19 +9,18 @@ $light-blue: #dff1f8;
 $loader-background: rgba(255, 255, 255, 0.85);
 
 $font-size: 20px;
-$mobile-font-size: 15px;
+$mobile-font-size: 12px;
 
 $table-unit-width: 3em;
-$max-width: 1000px;
+$max-width: 1600px;
 
-$mobile-width: 600px;
+$mobile-width: 767px;
 
 $menu-button-line-width: 30px;
 $menu-button-line-height: 5px;
 $menu-button-lines-offset: 10px;
 
 $header-sides-margin: 20px;
-$search-bar-width: calc(95vw - 150px);
 
 @mixin mobile {
     @media screen and (max-width: $mobile-width) {
@@ -41,9 +41,21 @@ $search-bar-width: calc(95vw - 150px);
             transform: $transformation;
 }
 
+@mixin rotate ($deg) {
+    @include transform(rotate(#{$deg}deg));
+}
+
 @mixin table-border() {
     border-left: 1px solid $white;
     border-right: 1px solid $white;
+
+    &:first-child {
+        border-left: none;
+    }
+
+    &:last-child {
+        border-right: none;
+    }
 }
 
 @mixin loader($size) {

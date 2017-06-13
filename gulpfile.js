@@ -10,6 +10,13 @@ var cache = require('gulp-cache');
 var del = require('del');
 var runSequence = require('run-sequence');
 
+gulp.task('build', function (callback) {
+  runSequence('clean:dist',
+    ['sass', 'useref', 'images', 'fonts', 'favicon'],
+    callback
+  )
+});
+
 gulp.task('default', function (callback) {
   runSequence(['sass','browserSync', 'watch'],
     callback
@@ -31,14 +38,7 @@ gulp.task('watch', ['browserSync', 'sass'], function (){
   gulp.watch('app/js/**/*.js', browserSync.reload);
 });
 
-gulp.task('build', function (callback) {
-  runSequence('clean:dist',
-    ['sass', 'useref', 'images', 'fonts'],
-    callback
-  )
-});
-
-gulp.task('useref', function(){
+gulp.task('useref', function(cb){
   return gulp.src('app/*.html')
     .pipe(useref())
     // Minifies only if it's a JavaScript file
@@ -59,6 +59,11 @@ gulp.task('images', function(){
 gulp.task('fonts', function() {
   return gulp.src('app/fonts/**/*')
   .pipe(gulp.dest('dist/fonts'))
+});
+
+gulp.task('favicon', function() {
+  return gulp.src('app/*.ico')
+  .pipe(gulp.dest('dist'))
 });
 
 gulp.task('clean:dist', function() {

@@ -13,33 +13,64 @@
   height: 60px;
   background-color: #ffffff;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   position: fixed;
-  top: 0; }
+  justify-content: flex-end;
+  top: 0;
+  z-index: 2; }
+  @media screen and (max-width: 767px) {
+    .header_container {
+      height: 120px;
+      width: 100vw;
+      justify-content: center; } }
 
 .header__logo {
-  margin-left: 20px; }
+  margin-left: 20px;
+  margin-right: auto; }
+  @media screen and (max-width: 767px) {
+    .header__logo {
+      margin: 0 10px; } }
 
 .header__search_bar {
-  width: calc(95vw - 150px);
+  width: 600px;
+  max-width: 30vw;
   height: 40px;
   border: 1px solid #aaaaaa;
-  background-color: #fafafa; }
-
-.header__menu_button {
-  width: 30px;
-  height: 5px;
-  background-color: #4e4e4e;
-  position: relative;
-  margin-right: 20px; }
-  .header__menu_button::after, .header__menu_button::before {
-    content: '';
-    width: inherit;
-    height: inherit;
-    background-color: inherit;
-    position: absolute;
-    top: -10px;
-    left: 0; }
-  .header__menu_button::before {
-    top: 10px; }
+  background-color: #fafafa;
+  padding-left: 20px;
+  font-size: 16px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+  @media screen and (max-width: 767px) {
+    .header__search_bar {
+      width: auto;
+      max-width: 90vw; } }
+  .header__search_bar_wrapper {
+    position: relative; }
+    .header__search_bar_wrapper:before {
+      display: block;
+      position: absolute;
+      content: "";
+      width: 3px;
+      height: 10px;
+      background-color: #3899d1;
+      top: 20px;
+      right: 24px;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg); }
+    .header__search_bar_wrapper:after {
+      display: block;
+      position: absolute;
+      content: "";
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      border-radius: 50%;
+      border: 2px solid #3899d1;
+      width: 10px;
+      height: 10px;
+      top: 10px;
+      right: 10px; }

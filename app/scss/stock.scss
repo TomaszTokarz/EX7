@@ -1,87 +1,147 @@
 @import 'settings';
 
 .stock__table {
-    margin: 0 auto 30px;
-    width: 98%;
+    margin: 0 auto;
     max-width: $max-width;
+    position: relative;
 
     &__header {
         top: 60px;
         color: $white;
-        line-height: 2.2em;
+        line-height: 2.5em;
         position: fixed;
         width: 100%;
         max-width: $max-width;
         display: flex;
+        background-color: $blue;
+        vertical-align: middle;
+        @include mobile {
+            top: 120px;
+            max-height: 30px;
+        }
+
+        &:before {
+            content: "";
+            background-color: $blue;
+            display: block;
+            top: 60px;
+            color: $white;
+            height: 2.5em;
+            position: fixed;
+            left: 0;
+            width: 100%;
+            z-index: 0;
+            @include mobile {
+                max-width: 100vw;
+            }
+        }
 
         &_id,
         &_acronym,
         &_name {
             width: $table-unit-width;
-            background-color: $blue;
             text-align: center;
-            flex-grow: 1;
+            flex-grow: 2;
             position: relative;
             cursor: pointer;
             @include table-border();
         }
 
         &_name {
-            flex-grow: 10;
+            flex-grow: 20;
         }
 
         &__sort_indicator {
-
-            &.ascent {
-                display: block;
-                position: absolute;
+            &.ascent,
+            &.descent {
+                display: inline-block;
+                position: relative;
                 width: 0;
                 height: 0;
-                top: calc(1.1em - 4px);
-                right: 5px;
+                top: 5px;
+                margin-left: 10px;
                 border: 8px solid transparent;
                 border-top: 8px solid $white;
+
+                @include mobile {
+                    top: 8px;
+                }
             }
 
             &.descent {
-                display: block;
-                position: absolute;
-                width: 0;
-                height: 0;
-                top: calc(1.1em - 12px);
-                right: 5px;
-                border: 8px solid transparent;
+                top: -3px;
+                border-top: 0;
                 border-bottom: 8px solid $white;
+                @include mobile {
+                    top: 0;
+                };
+            }
+        }
+
+        &_acronym.mobile{
+            @include mobile {
+                top: -8px;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: -10px;
+                    width: 100%;
+                    height: 20px;
+                    border-right: 2px solid $white;
+                }
+            }
+        }
+
+        &_acronym.mobile &__sort_indicator:first-child {
+            &.ascent,
+            &.descent {
+                @include mobile {
+                    top: -7px;
+                    margin-left: 0px;
+                }
+            }
+
+            &.descent {
+                @include mobile {
+                    top: -15px;
+                }
             }
         }
     }
 
     &__body {
-        margin-top: 102px;
+        margin-top: 112px;
         padding: 0;
         line-height: 1.8em;
-        width: 100%;;
+        width: 100%;
         max-width: $max-width;
-
+        @include mobile {
+            margin-top: 152px;
+        }
 
         &_supply {
             display: flex;
-        }
+            background-color: $white;
 
-        &_supply:nth-child(even) &_id,
-        &_supply:nth-child(even) &_acronym,
-        &_supply:nth-child(even) &_name {
-            background-color: $light-blue;
+            &:nth-child(even) {
+                background-color: $light-blue;
+            }
         }
 
         &_id,
         &_acronym,
         &_name {
             width: $table-unit-width;
-            background-color: $white;
             text-align: center;
             flex-grow: 1;
+            padding: 10px 0;
             @include table-border();
+
+            li:nth-child(odd) & {
+                border-color: $light-grey;
+            }
         }
 
         &_name {
@@ -90,44 +150,5 @@
             box-sizing: border-box;
             padding-left: $header-sides-margin;
         }
-    }
-
-    &__footer {
-        background-color: $blue;
-        color: $white;
-        line-height: 2.2em;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-
-        &_text {
-            padding-left: $header-sides-margin;
-        }
-
-        &_indicator {
-            cursor: pointer;
-            padding: 0 5px;
-
-            &.active {
-                font-size: bold;
-                border: 2px solid $white;
-            }
-        }
-
-        &_next_page {
-            padding-right: $header-sides-margin;
-            cursor: pointer;
-        }
-
-        &_previous_page {
-            cursor: pointer;
-            visibility: hidden;
-
-            &.active {
-                visibility: visible;
-            }
-        }
-
-
     }
 }

@@ -10,7 +10,7 @@ var LayoutView = Backbone.Marionette.View.extend({
     },
 
     events: {
-        'keyup @ui.filterInput': 'search',
+        'keyup @ui.filterInput': 'search'
     },
 
     initialize: function() {
@@ -20,7 +20,9 @@ var LayoutView = Backbone.Marionette.View.extend({
     onRender: function() {
         this.loader = new LoaderView();
         this.headerView = new HeaderView();
-        this.currentView = new StockCollectionView();
+        this.currentView = new StockCollectionView({
+            loaderView: this.loader
+        });
     },
 
     search: function(ev) {

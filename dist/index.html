@@ -1,97 +1,93 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class='no-js lt-ie9 lt-ie8 lt-ie7'> <![endif]-->
-<!--[if IE 7]>         <html class='no-js lt-ie9 lt-ie8'> <![endif]-->
-<!--[if IE 8]>         <html class='no-js lt-ie9'> <![endif]-->
-<!--[if gt IE 8]><!--> <html class='no-js'> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='description' content=''>
-    <meta name='keywords' content=''>
-    <meta name='author' content='Tomasz Tokarz'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Tomasz Tokarz">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EX7 project</title>
 
-    <link href='https://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
 
     <link rel="stylesheet" href="css/styles.min.css">
 </head>
 
-<body class='body'>
+<body class="body">
     <!--[if lt IE 10]>
-        <p class='browsehappy'>You are using an <sdivong>outdated</sdivong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.</p>
+        <p class="browsehappy">You are using an <sdivong>outdated</sdivong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class='js-app-container'></div>
+    <div class="js-app-container"></div>
 
-    <div class='templates_container'>
-        <script id='layout_template' type='text/x-handlebars-template'>
-            <header class='header_container js-header-container'></header>
-            <main class='main_container'></main>
-            <footer class='footer_container'></footer>
-            <!-- <div class='loader'></div> -->
+    <div class="templates_container">
+        <script id="layout_template" type="text/x-handlebars-template">
+            <header class="header_container js-header-container"></header>
+            <main class="main_container"></main>
         </script>
 
-        <script id='header_template' type='text/x-handlebars-template'>
-            <img class='header__logo' src='images/logo.png' />
-            <input class='header__search_bar js_filter_input'></input>
-            <div class='header__menu_button'>
-                <div class='header__menu_button_icon'></div>
+        <script id="header_template" type="text/x-handlebars-template">
+            <img class="header__logo" src="images/logo.png" />
+            <div class="header__search_bar_wrapper">
+                <input class="header__search_bar js_filter_input" type="text" placeholder="Search through items...">
             </div>
         </script>
 
-        <script id='stock_template' type='text/x-handlebars-template'>
-            <div class='stock__table'>
-                <div class='stock__table__header'>
-                    <div class='stock__table__header_acronym js_acronym_button'>
+        <script id="table_nav_template" type="text/x-handlebars-template">
+            <div class="table__nav__size">
+                <span class="table__nav__size__title">Items per page</span>
+                <a class="table__nav__size__item js_page_size_indicator" data-value="20">20</a>
+                <a class="table__nav__size__item js_page_size_indicator" data-value="50">50</a>
+                <a class="table__nav__size__item js_page_size_indicator" data-value="100">100</a>
+                <a class="table__nav__size__item js_page_size_indicator" data-value="0">All</a>
+            </div>
+            <div class="table__nav__page">
+                <a class="table__nav__page_prev js_previous_page"></a>
+                <span class="table__nav__page_current js_current_page"></span>
+                <a class="table__nav__page_next js_next_page"></a>
+            </div>
+        </script>
+
+        <script id="stock_template" type="text/x-handlebars-template">
+            <div class="stock__table">
+                <div class="stock__table__header">
+                    <div class="stock__table__header_acronym js_acronym_button">
                         Acronym
-                        <div class='stock__table__header__sort_indicator js_sort_indicator'></div>
+                        <div class="stock__table__header__sort_indicator js_sort_indicator"></div>
                     </div>
-                    <div class='stock__table__header_id js_id_button'>
+                    <div class="stock__table__header_id js_id_button">
                         ID
-                        <div class='stock__table__header__sort_indicator js_sort_indicator'></div>
+                        <div class="stock__table__header__sort_indicator js_sort_indicator"></div>
                     </div>
-                    <div class='stock__table__header_name js_name_button'>
+                    <div class="stock__table__header_name js_name_button">
                         Name
-                        <div class='stock__table__header__sort_indicator js_sort_indicator ascent'></div>
+                        <div class="stock__table__header__sort_indicator js_sort_indicator ascent"></div>
                     </div>
                 </div>
-                <ul class='stock__table__body'></ul>
-                <div class='stock__table__footer'>
-                    <div class='stock__table__footer'>
-                        <span class='stock__table__footer_text'>Items per page:
-                            <span class='stock__table__footer_indicator js_page_size_indicator active' value='20'>20</span> |
-                            <span class='stock__table__footer_indicator js_page_size_indicator' value='50'>50</span> |
-                            <span class='stock__table__footer_indicator js_page_size_indicator' value='100'>100</span>
-                        </span>
-                        <div>
-                            <span class='stock__table__footer_previous_page js_previous_page'>
-                                << previous page ||
-                            </span>
-                            <span class='stock__table__footer_next_page js_next_page'>
-                                next page >>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+                <ul class="stock__table__body"></ul>
+                <div class="stock__table__footer"></div>
             </div>
         </script>
 
-        <script id='supply_template' type='text/x-handlebars-template'>
-            <div class='stock__table__body_acronym'>
+        <script id="supply_template" type="text/x-handlebars-template">
+            <div class="stock__table__body_acronym">
                 {{acronym}}
             </div>
-            <div class='stock__table__body_id'>
+            <div class="stock__table__body_id">
                 {{id}}
             </div>
-            <div class='stock__table__body_name'>
+            <div class="stock__table__body_name">
                 {{name}}
             </div>
         </script>
 
-        <script id='loader_template' type='text/x-handlebars-template'>
-            <div class='loader__screen'></div>
+        <script id="loader_template" type="text/x-handlebars-template">
+            <div class="loader__screen"></div>
         </script>
     </div>
 
