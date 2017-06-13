@@ -34,13 +34,18 @@ var TableNavView = Backbone.Marionette.View.extend({
         app.layout.currentView.previousPage();
     },
 
-    refreshNavBar: function() {
+    refreshNavBar: function(pagination) {
         var indicators = this.ui.pageSizeIndicator;
         indicators.removeClass('active');
         for (var i = 0; i < indicators.length; i++) {
-            if ( $(indicators[i]).attr('data-value') == stock.pageSize) {
-                $(indicators[i]).addClass('active');
+            if (pagination) {
+                if ( $(indicators[i]).attr('data-value') == stock.pageSize) {
+                    $(indicators[i]).addClass('active');
+                }
+            } else {
+                $(indicators[3]).addClass('active');
             }
+
         };
         if (stock.page == 1) {
             this.ui.previousPageButton.addClass('inactive');

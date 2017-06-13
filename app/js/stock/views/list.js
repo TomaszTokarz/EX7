@@ -5,6 +5,7 @@ var StockCollectionView = Backbone.Marionette.CompositeView.extend( {
     childView: SupplyItemView,
     collection: stock,
     navView: [],
+    pagination: true,
 
     ui: {
         acronymButton: '.js_acronym_button',
@@ -27,6 +28,7 @@ var StockCollectionView = Backbone.Marionette.CompositeView.extend( {
             method: 'POST',
             data: this.collection.data()
         })
+        this.infiniteScroll();
     },
 
     onRender: function() {
@@ -39,7 +41,13 @@ var StockCollectionView = Backbone.Marionette.CompositeView.extend( {
     },
 
     changePageSizeIndicator: function(ev) {
-        this.collection.pageSize = parseInt($(ev.target).attr('data-value'));
+        if (parseInt($(ev.target).attr('data-value')) == 0) {
+            this.collection.pageSize = 20;
+            this.pagination = false;
+        } else {
+            this.pagination = true;
+            this.collection.pageSize = parseInt($(ev.target).attr('data-value'));
+        }
         this.collection.page = 1;
         this.refreshCollection('page_size', this.collection.pageSize);
     },
@@ -56,6 +64,14 @@ var StockCollectionView = Backbone.Marionette.CompositeView.extend( {
         }
     },
 
+    infiniteScroll: function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() + $(window).height() == $(document).height() && this.pagination == false) {
+                this.refreshCollection('page', this.collection.page++ );
+            }
+        }.bind(this));
+    },
+
     refreshCollection: function() {
         for (var i = 0; i < arguments.length / 2; i++) {
             this.replaceQueryParam(arguments[2 * i], arguments[2 * i + 1])
@@ -63,14 +79,15 @@ var StockCollectionView = Backbone.Marionette.CompositeView.extend( {
         this.options.loaderView.show();
         this.collection.fetch({
             method: 'POST',
-            data: this.collection.data()
+            data: this.collection.data(),
+            remove: this.pagination
         });
-        this.refreshNavBar();
+        this.refreshNavBar(this.pagination);
     },
 
     refreshNavBar: function() {
         for (var i = 0; i < this.navView.length; i++) {
-            this.navView[i].refreshNavBar();
+            this.navView[i].refreshNavBar(this.pagination);
         }
     },
 
